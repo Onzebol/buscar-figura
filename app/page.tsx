@@ -1,6 +1,6 @@
 "use client"
 
-import { Tablero } from "@/components/tablero4";
+import { Tablero } from "@/components/tablero";
 import useWindowDimensions from "@/components/useWindowDimensions";
 
 export default function Home() {

@@ -24,6 +24,7 @@ export const Tablero:  React.FC<TableroProps>  = ({ width, height} ) : React.JSX
     const circleSizeMax = 60;
     const circleCount = Math.floor(((width * height) / (Math.PI * circleSizeMax * circleSizeMax)) * 0.7);
     console.log(circleCount);
+    let intentos = 0;
     for (let i = 0; i < circleCount; i++) {
         const circle = {
             x: Math.random() * (width - circleSizeMax * 2) + circleSizeMax,
@@ -45,6 +46,11 @@ export const Tablero:  React.FC<TableroProps>  = ({ width, height} ) : React.JSX
         }
         if (overlapping) {
             i--;
+            intentos++;
+            if (intentos > 10000) {
+                i++;
+                console.log("No se pudo generar un circulo", i);
+            }
             continue;
         }
 
@@ -54,7 +60,7 @@ export const Tablero:  React.FC<TableroProps>  = ({ width, height} ) : React.JSX
 
     return (
         <svg width={width} height={height}>
-            <rect x={0} y={0} width={width} height={height} fill="red" />
+            <rect x={0} y={0} width={width} height={height} fill="white" />
             {circles.map((circle, i) => (
                 <g key={i}>
                     <circle cx={circle.x} cy={circle.y} r={circle.size} fill="white" />

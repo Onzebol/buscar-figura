@@ -78,7 +78,7 @@ export const Tablero:  React.FC<TableroProps>  = ({ width, height} ) : React.JSX
 
     const circuloActual: Circulo = circles[0];
 
-    const anguloPrimero = Math.random() * 360;
+    const anguloPrimero = 90;
 
 
     while (360 - totalAngulo > anguloMin) {
@@ -118,7 +118,7 @@ export const Tablero:  React.FC<TableroProps>  = ({ width, height} ) : React.JSX
 
     return (
         <svg width={width} height={height}>
-            <rect x={0} y={0} width={width} height={height} fill="red" />
+            <rect x={0} y={0} width={width} height={height} fill="white" />
             {circles.map((circle, i) => (
                 <g key={i}>
                     <circle cx={circle.x} cy={circle.y} r={circle.radio} fill="white" />
